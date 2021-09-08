@@ -1,0 +1,22 @@
+button {
+    border: none;
+    background-color: white;
+}
+
+#fogomb {
+    border: 1px solid rgb(184, 178, 178);
+}
+
+.blue {
+    color: blue;
+}
+
+
+.szin, .rend, .megn, .jegy, .torl, .ikon {
+    float: right;
+}
+
+#inputMezo {
+    width: 320px;
+}
+
