@@ -14,11 +14,11 @@ $("#fogomb").click (()  => {
                                 ${szoveg}
                                 <button class="ikon">  <i class="fas fa-space-shuttle"></i>   </button>
                                 <button class="torl" id="torl${hanyadiksor}"  data-szamozo="${hanyadiksor}" >   Törlés      </button>
-                                <button class="jegy" id="jegy${hanyadiksor}"  data-szamozo="${hanyadiksor}" >   Jegyzet     </button>
-                                <button class="megn" id="megn${hanyadiksor}"  data-szamozo="${hanyadiksor}" >   Megnevezés  </button>
-                                <button class="rend" id="rend${hanyadiksor}"  data-szamozo="${hanyadiksor}" >   Sorrend     </button>
-                                <button class="szin" id="szin${hanyadiksor}"  data-szamozo="${hanyadiksor}" >   Szín        </button>
-                             </li>
+                                <button class="jegy" id="jegy${hanyadiksor}"  data-szamozo="${hanyadiksor}" >   J     </button>
+                                <button class="megn" id="megn${hanyadiksor}"  data-szamozo="${hanyadiksor}" >   M  </button>
+                                <button class="rend" id="rend${hanyadiksor}"  data-szamozo="${hanyadiksor}" >   S     </button>
+                                <button class="szin" id="szin${hanyadiksor}"  data-szamozo="${hanyadiksor}" >   Sz        </button>
+                             </li> 
             `)
 }
 )
@@ -71,29 +71,38 @@ $("ul").on("click","li",(event) => {
 
 
 
-// T: ................. gombra kattintva az adott sort mindenestől kitörli.
-let regidata = null
-let ujdata = null
-$("li").on("click", ".torl [data-szamozo]", (event) => {
+// T: Törlés gombra kattintva az adott sort mindenestől kitörli.
+let mittorol = null
+
+$("ul").on("click", ".torl", (event) => {
                                             console.log(event)
-
-    let mittorol = $(event.currentTarget).attr("data-szamozo")
+    mittorol = $(event.currentTarget).attr("data-szamozo")
                                             console.log(mittorol)
-                                            // ??????????????????? Ez sz-em nem kell ide     mittorol = parseInt(mittorol)
-    $(#(sor`${mittorol}`)).remove()         // ??????????????????? Hogy hivatkozzam pl. a sor class-ú és 4-es data-szamozo-s elemre?
-
-                                            console.log(osszessor)
-    for (let i=mittorol+1; i<osszessor+1; i++)  {
-        regidata = $(".sor").attr(data-szamozo)        
-        ujdata = parseInt(regidata) - 1
-        $(".sor....................).attr(ujdata)               // ?????????????? Még nem fejeztem be. A sor data-szamozo attribútumai az ujdata értéket veszik fel. Hogyan legyen? A sor id-jére hivatkozzam vagy a rédi data-szamozo attribútumra? + Még le kell zárni a kül. zárójeleket!
-
-    }
+    $("#sor"+mittorol).remove()         
+}
+)
+  
 
 
+// T: Színminta az inputmező felett.
+let szinek = ["rgb(54, 105, 173)", "rgb(255, 204, 0)", "rgb(255, 119, 0)", "rgb(212, 230, 135)", "#c5dae4", "#fbebfe", "rgb(255, 255, 255)"] 
+
+
+szinek.forEach(function (szin) {
+    $(".kontener").append("<div></div>")
+    $(".kontener div:last-of-type").css("background-color", szin)
+//    $(".kontener div:last-of-type").css("display", inline)
+
+//.............................................? $(".kontener div:last-of-type").css("float", "right")
 }
 )
 
 
 
-
+/*
+//function egySzinDoboz(szin) {
+    let egySzinDoboz = (szin) => {
+    $(".kontener").append("div></div>")
+    $(".kontener div:last-of-type").css("background-color", szin)
+}
+*/
